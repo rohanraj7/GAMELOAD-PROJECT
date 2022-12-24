@@ -1,0 +1,49 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container" style="padding-left:17px;padding-top:91px;">
+    <h2 class="text-danger">BANNER MANAGEMENT</h2>
+    <table class="table table-bordered table-secondary">
+        <thead>
+          <tr style="text-align: center;">
+            <th scope="col">Sl.No</th>
+            <th scope="col">Heading</th>
+            <th scope="col">Description</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody style="text-align: center;">
+            {% for i in ban %}
+          <tr>
+            <th>{{i.id}}</th>
+            <td>{{i.heading}}</td>
+            <td>{{i.description}}</td>
+            <td><a class="" style="padding-left:28px;"
+                href="{% url 'delete_banner' i.id %}" role="button"><i class="fa fa-trash"></i></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+
+<div>
+<center>
+    <a href="{% url 'add_banner' %}"><button type="button" class="btn btn-secondary">Add Banner</button></a>
+</center>
+</div><br>
+</div> 
+     
+</div>   
+{% endblock content %}
+
+{% block scripts %}
+<script>
+{% for n in messages %}
+swal(
+    'Good job!',
+    '{{ n }}',
+    'success'
+)
+{% endfor %}
+</script>
+{% endblock %}

@@ -1,0 +1,576 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GameLoad</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}" type="text/css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Humberger Begin -->
+    <div class="humberger__menu__overlay"></div>
+    <div class="humberger__menu__wrapper">
+        <div class="humberger__menu__logo">
+            <a href="#"><img src="img/logo.png" alt=""></a>
+        </div>
+        <div class="humberger__menu__cart">
+            <ul>
+                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                
+            </ul>
+            {% comment %} <div class="header__cart__price">item: <span>$150.00</span></div> {% endcomment %}
+        </div>
+        <div class="humberger__menu__widget">
+            <div class="header__top__right__language">
+                <img src="img/language.png" alt="">
+                <div>English</div>
+                <span class="arrow_carrot-down"></span>
+                <ul>
+                    <li><a href="#">Spanis</a></li>
+                    <li><a href="#">English</a></li>
+                </ul>
+            </div>
+            <div class="header__top__right__auth">
+                <a href="#"><i class="fa fa-user"></i> Login</a>
+            </div>
+        </div>
+        <nav class="humberger__menu__nav mobile-menu">
+            <ul>
+                <li class="active"><a href="./index.html">PS5</a></li>
+                <li><a href="./shop-grid.html">PS4</a></li>
+                    <li><a href="#">PLAYSTATION</a></li>
+                <li><a href="./blog.html">CONSOLE</a></li>
+                <li><a href="./contact.html">Accesories</a></li>
+            </ul>
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+        <div class="header__top__right__social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+        </div>
+        {% comment %} <div class="humberger__menu__contact">
+            <ul>
+                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                <li>Free Shipping for all Order of $99</li>
+            </ul>
+        </div> {% endcomment %}
+    </div>
+    <!-- Humberger End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        {% comment %} <div class="header__top__left">
+                            <ul>
+                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                                <li>Free Shipping for all Order of $99</li>
+                            </ul>
+                        </div> {% endcomment %}
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__right">
+                            <div class="header__top__right__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                            </div>
+                            <div class="header__top__right__language">
+                                {% comment %} <img src="img/language.png" alt=""> {% endcomment %}
+                                {% if request.user.is_authenticated %}
+                                <div class="header__top__right__auth">
+                                    <a><i class="fa fa-user"></i> Hi, {{ user.fullname }}</a>
+                                </div> 
+                                
+                                <ul>
+                                    <li><a href="{% url 'profile' %}" style="text-decoration: none;">PROFILE</a></li>
+                                    <li><a href="{% url 'myorder'  %}" style="text-decoration: none;">MY ORDER</a></li>
+                                    <li><a href="{% url 'view_wishlist' %}" style="text-decoration: none;">My wishlist</a></li>
+                                    <li><a href="{% url 'logout_user' %}" style="text-decoration: none;"> Logout</a></li>
+
+                                </ul>
+                                {% else %}
+                                <p><a href="{% url 'login_view' %}" style="text-decoration: none; color:black;">Login</a></p>
+                                {% endif %}
+                            </div>
+                             {% comment %} <div class="header__top__right__auth">
+                                
+                                <a href="{% url 'logout_user' %}"><i class="fa fa-user"></i> Logout</a>{% endcomment %}
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="header__menu">
+                        <ul>
+                             <li><a href="" style="text-decoration:none;">HOME</a></li>
+                            <li><a href="{% url 'view_home' %}" style="text-decoration:none;">SHOP</a></li>
+                            <li><a href="" style="text-decoration:none;">Blog</a></li> 
+                            <li><a href="" style="text-decoration:none;">Pages</a></li> 
+                            <li><a href="" style="text-decoration:none;">Contact</a></li> 
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3">      
+                    <div class="header__cart">
+                        <ul>
+                            <li><a href="{% url 'view_wishlist' %}" ><i class="fa fa-heart" ></i> <span>3</span></a></li>
+                            <li><a href="{% url 'view_cart' %}"><i class="fa fa-shopping-cart"></i> <span>3</span></a></li>
+                            <li><a href="{% url 'myorder' %}" ><i class="fa fa-money"></i> <span>3</span></a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Hero Section Begin -->
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3"> 
+                    <div class="hero__categories">
+                       <div class="hero__categories__all">  
+                             <i class="fa fa-bars"></i>
+                            <span>All departments</span>
+                        </div>
+                        <ul>
+                            {% for i in cat %}
+                                <li><a href="{% url 'filter' i.id %}" style="text-decoration:none;">{{i.name}}</a></li>
+                            {% endfor %}
+                        </ul> 
+                    </div>  
+                 </div> 
+                <div class="col-lg-12">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                                <form action="" method="get">
+                                    {% csrf_token %}
+                                <input type="text" name="search" placeholder="What do yo u need?">
+                                <button type="submit" class="site-btn" >SEARCH</button>
+                            </form>
+                        </div>
+                        <div class="hero__search__phone">
+                            <div class="hero__search__phone__icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="hero__search__phone__text">
+                                <h5>+91-8547725677</h5>
+                                <span>support 24/7 time</span>
+                            </div>
+                        </div> 
+                    </div>
+                   
+                    <div class="hero__item set-bg" style="height: 637px;" data-setbg="{% static 'home/img/hero/ax0V5TYMax06mLzmkWeQMiwH.webp' %} ">
+                        {% comment %} <div class="hero__text" > {% endcomment %}
+                            {% comment %} <span>FRUIT FRESH</span> {% endcomment %}
+                            {% comment %} <h2>Vegetable <br />100% Organic</h2>
+                            <p>Free Pickup and Delivery Available</p> {% endcomment %}
+                            {% comment %} <a href="#" class="primary-btn">SHOP NOW</a> {% endcomment %}
+                        {% comment %} </div> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Categories Section Begin -->
+    <section class="categories">
+        <div class="container">
+            <div class="row">
+                <div class="categories__slider owl-carousel">
+                    <div class="col-lg-12">
+                        <div class="categories__item set-bg"  data-setbg="{% static 'home/img/categories/fifa2022.jpg' %}">
+                            <h5><a href="#"style="text-decoration:none;">FIFA 2022</a></h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="categories__item set-bg" data-setbg="{% static 'home/img/categories/farcry.jpg' %}">
+                            <h5><a href="#" style="text-decoration:none;">FAR CRY</a></h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="categories__item set-bg" data-setbg="{% static 'home/img/categories/hogwarts.webp' %}">
+                            <h5><a href="#"style="text-decoration:none;">HOGWARTS</a></h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="categories__item set-bg" data-setbg="{% static 'home/img/categories/ps5.webp' %}">
+                            <h5><a href="#"style="text-decoration:none;">PS5 PLAYSTATION</a></h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="categories__item set-bg" data-setbg="{% static 'home/img/categories/host.webp' %}">
+                            <h5><a href="#"style="text-decoration:none;">GHOST</a></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Categories Section End -->
+
+    
+
+
+
+
+    <!--                                                    NORMAL_VIEW                                                         -->
+
+
+    <!-- Featured Section Begin -->
+    <section class="featured spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Featured Product</h2>
+                    </div>
+                    <div class="featured__controls">
+                        <ul> 
+                            <li class="active" data-filter=""><a href="{% url 'view_home' %}" style="text-decoration:none; color:#12294a;">ALL PRODUCTS</a></li>
+                            {% for i in cat %}
+                             <li data-filter="{{i.name}}"><a href="{% url 'filter' i.id %}"  style="text-decoration:none; color:#12294a;" >{{i.name}}</a></li> 
+                             {% endfor %} 
+                            {% comment %} {% for i in cat %}
+                                <li><a href="{% url 'filter' i.id %}" >{{i.name}}</a></li>
+                            {% endfor %} {% endcomment %}
+                        </ul> 
+                    </div>
+
+                       <!-- .............SEARCH PRODUCT.............. -->
+
+      <div class="container-fluid">
+        <div class="row">
+          {% if match %}
+          {% for i in match %}
+          <div class="col-lg-3 col-md-4 col-sm-6"s >
+            <div class="featured__item">
+                 <div class="featured__item__pic set-bg" data-setbg="/{{i.image1}}"> 
+                    <ul class="featured__item__pic__hover">
+                        {% comment %} <a href="{% url 'product_details' i.id %}"
+                            class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 ">
+                                View
+                        </a> {% endcomment %}
+                        <li><a href="{% url 'product_details' i.id %}"><i class="fa fa-eye"></i></a></li>
+                        
+                        <li><a href="{% url 'add_wishlist' i.id  %}"><i class="fa fa-heart"></i></a></li>
+                        {% comment %} <li><a href="#"><i class="fa fa-retweet"></i></a></li> {% endcomment %}
+                        {% comment %} <li><a href="{% url 'iquantity' i.id %}"><i class="fa fa-shopping-cart"></i></a></li> {% endcomment %}
+                    </ul>
+                </div>
+                <div class="featured__item__text">
+                    <h6><a href="{% url 'product_details' i.id %}"  style="text-decoration:none;" >{{i.name}}</a></h6>
+                    {% comment %} <h5>{{i.price}}</h5> {% endcomment %}
+                    <span class="stext-105 cl3">
+                        <strong> ₹ {{ i.price }} &nbsp;</strong>
+                        {%if i.stock == 0 %} <span style="color: red;" class="stext-105 cl3">
+                          out of stock {% elif i.stock < 20 %} <bold style="color: red;"> {{ i.stock }} &nbsp;Left</bold>
+                        </span>
+
+                        {% endif %}
+                      </span>
+                     
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: row; flex-wrap: wrap" >
+            {% for i in p %}
+            {% comment %} <div class="row featured__filter"> {% endcomment %}
+                <div class="col-lg-3 col-md-4 col-sm-6" >
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="{{i.image1.url}}">
+                            <ul class="featured__item__pic__hover">
+                                {% comment %} <a href="{% url 'product_details' i.id %}"
+                                    class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 ">
+                                        View
+                                </a> {% endcomment %}
+                                <li><a href="{% url 'product_details' i.id %}"><i class="fa fa-eye"></i></a></li>
+                                
+                                <li><a href="{% url 'add_wishlist' i.id  %}"><i class="fa fa-heart"></i></a></li>
+                                {% comment %} <li><a href="#"><i class="fa fa-retweet"></i></a></li> {% endcomment %}
+                                {% comment %} <li><a href="{% url 'iquantity' i.id %}"><i class="fa fa-shopping-cart"></i></a></li> {% endcomment %}
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="{% url 'product_details' i.id %}"  style="text-decoration:none;" >{{i.name}}</a></h6>
+                            {% comment %} <h5>{{i.price}}</h5> {% endcomment %}
+                            <span class="stext-105 cl3">
+                                <strong> ₹ {{ i.offeredprice }} &nbsp;</strong>{% if i.proOffer >= 1 %}<del style="color: red;">{{i.price}}</del>{% endif %} &nbsp;&nbsp;
+                                {%if i.stock == 0 %} <span style="color: red;" class="stext-105 cl3">
+                                  out of stock {% elif i.stock < 20 %} <bold style="color: red;"> {{ i.stock }} &nbsp;Left</bold>
+                                </span>
+        
+                                {% endif %}
+                              </span>
+                              <span class="stext-105 cl3">
+                                {% if i.proOffer >= 1 %}
+                                <p style="color: green;">{{i.proOffer}}%Off</p>
+                                {% endif %}
+                              </span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% comment %} </div> {% endcomment %}
+        </div>
+    </div>
+
+
+
+    <!-- ....................PAGINATION.................-->
+        <nav aria-label="..." style="padding-left: 773px;">
+            <ul class="pagination">
+                {% if p.has_previous %}
+              <li class="page-item">
+                <a class="page-link" href="/viewhome/?page={{p.previous_page_number}}" tabindex="-1">Previous</a>
+              </li>
+              {% endif %}
+              {% for n in list%}
+              <li class="page-item"><a class="page-link" href="/viewhome/?page={{n}}" >{{n}}</a></li>
+              {% endfor %}
+              {% if p.has_next %}
+              <li class="page-item">
+                <a class="page-link" href="/viewhome/?page={{p.next_page_number}}">Next</a>
+              </li>
+              {% endif %}
+            </ul>
+          </nav>
+          <!-- Featured Section End -->
+    
+  
+   
+
+          <!-- Banner Begin -->
+          <div class="container">
+                <div style=" display: flex;">
+                  {% for ob in ban %}
+                  <div class="row" style="padding-right: 27px; width: 591px;">
+                      <div class="">
+                          <div class="banner__pic">
+                              <img src="/{{ob.image}}" alt="">
+                              <p style="color: chartreuse;">{{ob.description}}</p>
+                          </div>
+                      </div>
+                  </div>
+                  {% endfor %}
+             </div>
+        </div>
+          <!-- Banner End -->
+</section>
+
+
+    <!-- Latest Product Section Begin -->
+
+    <!-- Latest Product Section End -->
+
+    <!-- Blog Section Begin -->
+    {% comment %} <section class="from-blog spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title from-blog__title">
+                        <h2>From The Blog</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="blog__item">
+                        <div class="blog__item__pic">
+                            <img src="img/blog/blog-1.jpg" alt="">
+                        </div>
+                        <div class="blog__item__text">
+                            <ul>
+                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                <li><i class="fa fa-comment-o"></i> 5</li>
+                            </ul>
+                            <h5><a href="#">Cooking tips make cooking simple</a></h5>
+                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="blog__item">
+                        <div class="blog__item__pic">
+                            <img src="img/blog/blog-2.jpg" alt="">
+                        </div>
+                        <div class="blog__item__text">
+                            <ul>
+                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                <li><i class="fa fa-comment-o"></i> 5</li>
+                            </ul>
+                            <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
+                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="blog__item">
+                        <div class="blog__item__pic">
+                            <img src="img/blog/blog-3.jpg" alt="">
+                        </div>
+                        <div class="blog__item__text">
+                            <ul>
+                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                <li><i class="fa fa-comment-o"></i> 5</li>
+                            </ul>
+                            <h5><a href="#">Visit the clean farm in the US</a></h5>
+                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> {% endcomment %}
+    <!-- Blog Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__about__logo">
+                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        </div>
+                        <ul>
+                            <li>Address:  kochi</li>
+                            <li>Phone: +91 8547725677</li>
+                            <li>Email: gameload@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                    <div class="footer__widget">
+                        <h6>Useful Links</h6>
+                        <ul>
+                            <li><a href="#" style="text-decoration:none;">About Us</a></li>
+                            <li><a href="#"style="text-decoration:none;">About Our Shop</a></li>
+                            <li><a href="#"style="text-decoration:none;">Secure Shopping</a></li>
+                            <li><a href="#"style="text-decoration:none;">Delivery infomation</a></li>
+                            <li><a href="#"style="text-decoration:none;">Privacy Policy</a></li>
+                            <li><a href="#"style="text-decoration:none;">Our Sitemap</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#"style="text-decoration:none;">Who We Are</a></li>
+                            <li><a href="#"style="text-decoration:none;">Our Services</a></li>
+                            <li><a href="#"style="text-decoration:none;">Projects</a></li>
+                            <li><a href="#"style="text-decoration:none;">Contact</a></li>
+                            <li><a href="#"style="text-decoration:none;">Innovation</a></li>
+                            <li><a href="#"style="text-decoration:none;">Testimonials</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer__widget">
+                        <h6>Join Our Newsletter Now</h6>
+                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <form action="#">
+                            <input type="text" placeholder="Enter your mail">
+                            <button type="submit" class="site-btn">Subscribe</button>
+                        </form>
+                        <div class="footer__widget__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer__copyright">
+                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | gameload.in by ROHAN RAJ</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+
+    <script>
+        {% for n in messages %}
+        swal(
+  'Good job!',
+  '{{ n }}',
+  'success'
+        )
+        {% endfor %}
+      </script>
+
+    <script src="{% static 'home/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'home/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'home/js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'home/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'home/js/mixitup.min.js' %}"></script>
+    <script src="{% static 'home/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'home/js/main.js' %}"></script>
+
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+
+</html>

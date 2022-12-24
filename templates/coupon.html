@@ -1,0 +1,102 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container" style="padding-left:17px;padding-top:91px;">
+        <h2 class="text-danger">COUPON MANAGEMENT</h2>
+        <table class="table table-bordered table-secondary">
+            <thead>
+              <tr style="text-align: center;">
+                <th scope="col">ID</th>
+                <th scope="col">NAME</th>
+                <th scope="col">CODE</th>
+                <th scope="col">ADDED DATE</th>
+                <th scope="col">VALIDITY</th>
+                <th scope="col">MINIMUM PRICE</th>
+                <th scope="col">DISCOUNT</th>
+                <th scope="col">ACTION</th>
+              </tr>
+            </thead>
+            <tbody style="text-align: center;">
+                {% for i in coupon %}
+              <tr>
+                <th>{{i.id}}</th>
+                <td>{{i.coupon_name}}</td>
+                <td>{{i.coupon_code}}</td>
+                <td>{{i.added_date}}</td>
+                <td>{{i.validtill}}</td>
+                <td>{{i.minimum_price}}</td>
+                <td>{{i.discount}}</td>
+                <td><a class="" style="padding-left:28px;"
+                    href="{% url 'delete_coupon' i.id %}" role="button"><i class="fa fa-trash"></i></a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+<!--modal/table-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="background-color: #000;">
+        <div class="modal-header" style="border-bottom: 1px solid #e1d9d9;">
+          <h5 class="modal-title" style="color: #e9dcdc; padding-left: 149px;" id="exampleModalLabel">ADD COUPON</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="#" class="signup-form" method="post">
+            {% csrf_token %}
+            <div class="form-group mb-2">
+              <label class="label" for="name"> Coupon Name</label>
+              <input type="text" class="form-control" style="background-color: #fbecec;" placeholder="name" name="name" required>
+            </div>
+            <div class="form-group mb-2">
+              <label class="label" for="name"> Coupon code</label>
+              <input type="text" class="form-control" style="background-color: #fbecec;" placeholder="code" name="couponcode" required>
+            </div>
+            <div class="form-group mb-2">
+              <label class="label" for="name">Valid date</label>
+              <input type="date" class="form-control" style="background-color: #fbecec;" placeholder="valid date" name="validdate" required>
+            </div>
+            <div class="form-group mb-2">
+              <label class="label" for="name">Minimum price</label>
+              <input type="number" class="form-control" style="background-color: #fbecec;" placeholder="Minimum price" name="minimumprice"
+                required>
+            </div>
+            <div class="form-group mb-2">
+              <label class="label" for="name">Discount</label>
+              <input type="number" class="form-control" style="background-color: #fbecec;" placeholder="Discount" name="discount" required>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">ADD</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <center><a>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+          class="btn btn-secondary">
+          Add Coupon
+        </button>
+      </a>
+    </center>
+  </div><br>
+</div> 
+         
+    </div>   
+{% endblock content %}
+
+{% block scripts %}
+<script>
+    {% for n in messages %}
+    swal(
+        'Good job!',
+        '{{ n }}',
+        'success'
+    )
+    {% endfor %}
+</script>
+{% endblock %}

@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>USER LOGIN</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static 'login/images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'login/vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'login/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'login/css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+			<div class="wrap-login100">
+              
+					<span class="login100-form-logo">
+						<i class="zmdi zmdi-landscape"></i>
+					</span>
+                    <center>
+                        <a style="text-decoration: none ; color: black;" href="{% url 'view_home' %}"><h2>Game-Load</h2></a> 
+                     </center>
+                    <div class="div__col2">
+                        <div class="col2__box">
+                            <div class="name credentials">
+                                <span>Name</span>
+                                <h3> {{ob.fullname }}</h3>
+                                <span><div class="button__div">
+                                    <a href="{% url 'edit_profile' %}"><button type="button" class="btn btn-primary"> Change Name </button></a>
+                                </div> </span>
+                            </div>
+                            <hr>
+                            <div class="phone__number credentials" style="margin-left: 240px;
+                            margin-top: -94px;">
+                                <span>Phone number</span>
+                                <h3> {{ob.phoneno}} </h3>
+        
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="width:100% ;">
+                    <div class="div__col3 credentials">
+                        <div class="left__div">
+                            <span>Email</span>
+                            <center><h3> {{ob.email}} </h3></center>
+                        </div>
+                        <hr>
+        
+                        <div class="right__div">
+                            <!-- <span>Address</span> -->
+                            <!-- {% for i in o %}
+                            <h3>{{i.housename}}, {{i.city1}},{{i.district1}},{{i.zipcode1}}</h3>
+                            {% endfor %} -->
+                            <table  class="w-full whitespace-no-wrap " id="table">
+                                <thead>
+                
+                                  <tr>
+                                    <th>No.</th>
+                                    <th>Addresses</th>
+                                    
+                                  </tr>
+                                 
+                                </thead>
+                                <tbody>
+                                  
+                                  {% for i in o %}
+                                  <tr>
+                                    <td>{{i.id}}</td>
+                                    <td>{{i.housename}} , {{  i.city1}} ,{{i.district1  }} ,{{i.zipcode1}}</td>
+                                    <td><a class="btn btn-primary" href="{% url 'delete_address' i.id %}">Delete</a></td>
+                
+                                  </tr>
+                
+                                  
+                
+                                  {% endfor %}
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+        
+                    </div>
+					<hr style="width:100% ;">
+            <div class="div__col4">
+               
+                <div class="button__div" style="    padding-top: 10px;">
+                    <a href="{% url 'change_password' %}"><button type="button" class="btn btn-primary"> Change Password </button></a>
+                </div>
+                <div class="button__div" style="margin-left: 285px;
+                margin-top: -38px;">
+                    <a href="{% url 'address' %}"><button type="button" class="btn btn-primary"> Add Address </button></a>
+                </div>
+            </div>
+					
+				
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'login/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'login/vendor/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/vendor/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'login/js/main.js' %}"></script>
+
+</body>
+</html>

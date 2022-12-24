@@ -1,0 +1,174 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-line fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total products</p>
+                    <h6 class="mb-0">{{ use }}</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Total Revenue</p>
+                    <h6 class="mb-0"> Rs {{revenue}}</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-area fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2"> Orders Placed</p>
+                    <h6 class="mb-0"> {{ob}}</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">orders Pending </p>
+                    <h6 class="mb-0">{{pending}}</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sale & Revenue End -->
+
+ <!-- Sales Chart Start -->
+ <div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-secondary text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Monthly Sales</h6>
+                </div>
+                <canvas id="myChart1"></canvas>
+                <div class="">
+                    <script>
+                      var ctx = document.getElementById('myChart1').getContext('2d');
+                      var myChart1 = new Chart(ctx, {
+                          type: 'line',
+                          data: {
+                              labels: [{% for i in monthly_sales %} '{{i.name}}', {% endfor %} ],
+                      datasets: [{
+                          label: 'monthly sales',
+                          data: [{% for i in monthly_sales %} '{{ i.value }}', {% endfor %}],
+                          backgroundColor: [
+                              'rgba(255, 99, 132, 1)',
+                              'rgba(54, 162, 235, 1)',
+                              'rgba(255, 206, 86, 1)',
+                              'rgba(75, 192, 192, 1)',
+                              'rgba(153, 102, 255, 1)',
+                              'rgba(255, 159, 64, 1)',
+                              'rgba(205, 139, 64, 1)'
+                          ],
+                              borderColor: [
+                                  'rgba(255, 99, 132, 1)',
+                                  'rgba(54, 162, 235, 1)',
+                                  'rgba(255, 206, 86, 1)',
+                                  'rgba(75, 192, 192, 1)',
+                                  'rgba(153, 102, 255, 1)',
+                                  'rgba(255, 159, 64, 1)',
+                                  'rgba(205, 139, 64, 1)'
+                              ],
+                                  borderWidth: 1
+                      }]
+                          },
+                      options: {
+                          scales: {
+                              yAxes: [{
+                                  ticks: {
+                                      beginAtZero: true
+                                  }
+                              }]
+                          }
+                      }
+                      });
+                  </script> 
+                    
+                    
+                  </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-secondary text-center rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0"> Weekly Sales</h6>
+                   
+                </div>
+                <canvas id="myChart2"></canvas>
+                <script>
+                    var ctx = document.getElementById('myChart2').getContext('2d');
+                    var myChart1 = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: [{% for i in weekly_sales %} '{{i.name}}', {% endfor %} ],
+                    datasets: [{
+                        label: 'weekly sales',
+                        data: [{% for i in weekly_sales %} '{{ i.value }}', {% endfor %}],
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)',
+                            'rgba(205, 139, 64, 1)',
+                            'rgba(255, 162, 286, 1)',
+                            'rgba(155, 102, 86, 1)',
+                            'rgba(205, 206, 28, 1)',
+                            'rgba(255, 206, 86, 1)',
+                        ],
+                            borderColor: [
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(205, 139, 64, 1)',
+                                'rgba(255, 162, 286, 1)',
+                                'rgba(155, 102, 86, 1)',
+                                'rgba(205, 206, 28, 1)',
+                                'rgba(255, 206, 86, 1)',
+                            ],
+                                borderWidth: 1
+                    }]
+                        },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                    });
+                </script>
+              
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sales Chart End -->
+{%endblock%}
+{% block scripts %}
+<script>
+{% for n in messages %}
+  swal(
+  'Good job!',
+  '{{ n }}',
+  'success'
+  )
+{% endfor %}
+</script> 
+{% endblock %}

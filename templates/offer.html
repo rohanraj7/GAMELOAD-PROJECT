@@ -1,0 +1,77 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+<style>
+  .table-bordered td {
+    text-align: center;
+    } 
+</style>  
+{% block content %}
+
+<div class="container" style="padding-left:17px;padding-top:91px;">
+    <h2 class="text-danger">CATEGORY OFFER</h2>
+    <table class="table table-bordered table-secondary">
+        <thead>
+          <tr>
+            <th scope="col">NO</th>
+            <th scope="col">CATEGORY NAME</th>
+            <th scope="col">OFFERS</th>
+            <th scope="col">EDIT OFFER</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for i in cat %}
+          <tr>
+            <th>{{i.id}}</th>
+            <td>{{i.name}}</td>
+            <td>{{i.offer}}</td>
+            <td><a class="" style="padding-left:28px;"
+                href="{% url 'edit_offer' i.id %}" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>EDIT</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+<!--PRODUCT/OFFER PAGE-->
+<div class="container" style="padding-left:17px;padding-top:91px;">
+  <h2 class="text-danger">PRODUCT OFFER</h2>
+  <table class="table table-bordered  table-warning">
+      <thead>
+        <tr>
+          <th scope="col">NO</th>
+          <th scope="col">CATEGORY NAME</th>
+          <th scope="col">OFFERS</th>
+          <th scope="col">EDIT OFFER</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for i in product %}
+        <tr>
+          <th>{{i.id}}</th>
+          <td>{{i.name}}</td>
+          <td>{{i.proOffer}}</td>
+          <td><a class="" style="padding-left:28px;"
+              href="{% url 'edit_proOffer' i.id %}" role="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>EDIT</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% endblock content %}
+
+
+
+{% block scripts %}
+<script>
+  {% for n in messages %}
+    swal(
+    '{{ n }}'
+    )
+  {% endfor %}
+</script>     
+
+
+{% endblock scripts %}
+
+

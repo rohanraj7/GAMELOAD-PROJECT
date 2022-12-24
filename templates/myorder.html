@@ -1,0 +1,316 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GameLoad</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}" type="text/css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Humberger Begin -->
+    <div class="humberger__menu__overlay"></div>
+    <div class="humberger__menu__wrapper">
+        <div class="humberger__menu__logo">
+            <a href="#"><img src="img/logo.png" alt=""></a>
+        </div>
+        <div class="humberger__menu__cart">
+            <ul>
+                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+            </ul>
+            {% comment %} <div class="header__cart__price">item: <span>$150.00</span></div> {% endcomment %}
+        </div>
+        <div class="humberger__menu__widget">
+            <div class="header__top__right__language">
+                <img src="img/language.png" alt="">
+                <div>English</div>
+                <span class="arrow_carrot-down"></span>
+                <ul>
+                    <li><a href="#">Spanis</a></li>
+                    <li><a href="#">English</a></li>
+                </ul>
+            </div>
+            <div class="header__top__right__auth">
+                <a href="#"><i class="fa fa-user"></i> Login</a>
+            </div>
+        </div>
+        <nav class="humberger__menu__nav mobile-menu">
+            <ul>
+                <li class="active"><a href="./index.html">PS5</a></li>
+                <li><a href="./shop-grid.html">PS4</a></li>
+                <li><a href="#">PLAYSTATION</a>
+                    <ul class="header__menu__dropdown">
+                        <li><a href="./shop-details.html">Xbox-One</a></li>
+                        <li><a href="./shoping-cart.html">Xbox-series X</a></li>
+                    </ul>
+                </li>
+                <li><a href="./blog.html">CONSOLE</a></li>
+                <li><a href="./contact.html">Accesories</a></li>
+            </ul>
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+        <div class="header__top__right__social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+        </div>
+        {% comment %} <div class="humberger__menu__contact">
+            <ul>
+                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                <li>Free Shipping for all Order of $99</li>
+            </ul>
+        </div> {% endcomment %}
+    </div>
+    <!-- Humberger End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        {% comment %} <div class="header__top__left">
+                            <ul>
+                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                                <li>Free Shipping for all Order of $99</li>
+                            </ul>
+                        </div> {% endcomment %}
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__right">
+                            <div class="header__top__right__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                            </div>
+                            <div class="header__top__right__language">
+                                <img src="img/language.png" alt="">
+                                <div>English</div>
+                                <span class="arrow_carrot-down"></span>
+                                <ul>
+                                    <li><a href="#">Spanis</a></li>
+                                    <li><a href="#">English</a></li>
+                                </ul>
+                            </div>
+                            <div class="header__top__right__auth">
+                                <a href="{% url 'logout_user' %}"><i class="fa fa-user"></i> Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="header__menu">
+                        <ul>
+                            <li><a href="{% url 'view_home' %}">Home</a></li>
+                            <li class="active"><a href="./shop-grid.html">Shop</a></li>
+                            <li><a href="#">Pages</a></li>
+                            <li><a href="./blog.html">Blog</a></li>
+                            <li><a href="./contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3">
+                    <div class="header__cart">
+                        <ul>
+                            <li><a href="{% url 'view_wishlist' %}"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                            <li><a href="{% url 'view_cart' %}"><i class="fa fa-shopping-cart"></i> <span>3</span></a></li>
+                            <li><a href="{% url 'myorder'  %}"><i class="fa fa-money"></i> <span>3</span></a></li>
+                          
+                        </ul>
+                        {% comment %} <div class="header__cart__price">item: <span>$150.00</span></div> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+      <!-- Modal Search -->
+      <div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+        {% comment %} <div class="container-search-header">
+            <button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+            </button>
+
+            <form class="wrap-search-header flex-w p-l-15">
+               
+                <input class="plh3" type="text" name="search" placeholder="Search...">
+            </form> 
+
+        </div> {% endcomment %}
+    </div>
+</header>
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <h3 class="fw-bold mb-0 text-black"><br><br>My Orders</h3>
+        <h6 class="mb-0 text-muted" items></h6>
+    </div>
+    {% if ob %}
+    
+    {% for i in ob %}
+<div class="card rounded-3 mb-4">
+  <div class="card-body p-4">
+    <div class="row d-flex justify-content-between align-items-center">
+      <div class="col-md-2 col-lg-2 col-xl-2">
+        <img
+          src="{{ i.image.url}}"
+          class="img-fluid rounded-3" >
+      </div>
+      <div class="col-md-3 col-lg-3 col-xl-3">
+        <p class="lead fw-normal mb-2">{{i.productname}}</p>
+        
+      </div>
+      <div class="col-md-3 col-lg-3 col-xl-3">
+        <p class="lead fw-normal mb-2">Rs. {{i.totalamount}}</p>
+        
+      </div>
+    {% if i.status == False %}
+    <div class="col-md-3 col-lg-3 col-xl-3">
+        <p style="color: red;" class="lead fw-normal mb-2">Cancelled</p>
+    
+      </div>
+    {% else %}
+      <div class="col-md-3 col-lg-3 col-xl-3">
+        <p class="lead fw-normal mb-2">{{i.orderstatus}}</p>
+    
+      </div>
+      {% endif %}
+      <div class="col-md-3 col-lg-3 col-xl-3">
+        <p class="lead fw-normal mb-2">{{i.orderdate}}</p>
+    
+      </div>
+      
+      
+      <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+        {% csrf_token %}
+        
+        
+      </div>
+      <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+            {% if not i.orderstatus == 'RETURN INTIATED' %} 
+            {% if not i.orderstatus == 'Return Pending' %}
+          {% if not i.orderstatus == 'Out For delivery' or i.status == 'shipped' %}
+        {% if not i.orderstatus == 'deliverd' or i.status == 'cancelled' %}
+       <span>
+            <td>{% if i.status %}
+                    <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2{{i.id}}" class="btn btn-success me-5" href="{% url 'cancelorder' i.id %}"
+                    role="button">Cancel Order</a>
+                    {% else %}<a class="btn btn-primary me-5"
+                    href="{% url 'cancelorder' i.id %}" role="button" hidden>cancelled</a>
+                {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% endif %}
+        {% if  i.orderstatus == 'deliverd'  %}
+        <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1{{i.id}}" class="btn btn-danger me-5" href="{% url 'return_item' i.id %}"
+                    role="button">RETURN</a>
+        {% endif %}
+        </div>
+        
+      
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal1{{i.id}}" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">RETURN TIME PERIOD IS 10 days </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          DO YOU WANT TO RETURN THE ORDER
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100" data-bs-dismiss="modal">Close</button>
+            <a href="{% url 'return_item' i.id %}"> <button  type="button" class=" px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">RETURN</button> </a>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<div class="modal fade" id="exampleModal2{{i.id}}" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Cancel  Order bb</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Do you wish to Cancel the Order ...
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100" data-bs-dismiss="modal">Close</button>
+            <a href="{% url 'cancelorder' i.id %}"> <button  type="button" class=" px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">Change</button> </a>
+          </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+{% else%}
+<center><h5>You didn't ordered any items yet ...😫</h5></center><br><hr>
+<center> <a style="width: 200px;" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer btn btn-success"
+href="{% url 'view_home' %}" role="button"> Countinue Shopping</a></center>
+{% endif %}
+</div>
+   
+
+    
+
+    <!-- Js Plugins -->
+    <script src="{% static 'home/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'home/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'home/js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'home/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'home/js/mixitup.min.js' %}"></script>
+    <script src="{% static 'home/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'home/js/main.js' %}"></script>
+
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+
+</html>

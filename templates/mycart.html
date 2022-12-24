@@ -1,0 +1,449 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GameLoad</title>
+
+    
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}" type="text/css">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
+
+<!--sweetAlert-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<body>
+   <!-- Page Preloder -->
+   <div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<!-- Humberger Begin -->
+<div class="humberger__menu__overlay"></div>
+<div class="humberger__menu__wrapper">
+    <div class="humberger__menu__logo">
+        <a href="#"><img src="img/logo.png" alt=""></a>
+    </div>
+    <div class="humberger__menu__cart">
+        <ul>
+            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+            <li><a href=""><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+        </ul>
+        <div class="header__cart__price">item: <span>$150.00</span></div>
+    </div>
+    <div class="humberger__menu__widget">
+        <div class="header__top__right__language">
+            <img src="img/language.png" alt="">
+            <div>English</div>
+            <span class="arrow_carrot-down"></span>
+            <ul>
+                <li><a href="#">Spanis</a></li>
+                <li><a href="#">English</a></li>
+            </ul>
+        </div>
+        <div class="header__top__right__auth">
+            <a href="#"><i class="fa fa-user"></i> Login</a>
+        </div>
+    </div>
+    <nav class="humberger__menu__nav mobile-menu">
+        <ul>
+            <li class="active"><a href="">Home</a></li>
+            <li><a href="./shop-grid.html">Shop</a></li>
+            <li><a href="#">Pages</a>
+                <ul class="header__menu__dropdown">
+                    <li><a href="./shop-details.html">Shop Details</a></li>
+                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                    <li><a href="./checkout.html">Check Out</a></li>
+                    <li><a href="./blog-details.html">Blog Details</a></li>
+                </ul>
+            </li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <div id="mobile-menu-wrap"></div>
+    <div class="header__top__right__social">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+        <a href="#"><i class="fa fa-pinterest-p"></i></a>
+    </div>
+    <div class="humberger__menu__contact">
+        <ul>
+            <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+            <li>Free Shipping for all Order of $99</li>
+        </ul>
+    </div>
+</div>
+<!-- Humberger End -->
+
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="header__top__left">
+                         <ul>
+                            <li><i class="fa fa-envelope"></i>gameload@gmail.com</li>
+                            <li>Free Shipping for all Order</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                      <div class="header__top__right">
+                        <div class="header__top__right__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                        </div>
+                        <div class="header__top__right__language">
+                            <img src="img/language.png" alt="">
+                            <div>English</div>
+                            <span class="arrow_carrot-down"></span>
+                            <ul>
+                                <li><a href="#">Spanis</a></li>
+                                <li><a href="#">English</a></li>
+                            </ul>
+                        </div>
+                        <div class="header__top__right__auth">
+                          {% if request.user.is_authenticated %}
+                          <a href="{% url 'logout_user' %}"><i class="fa fa-user"></i> Logout</a>
+                          {% else %}
+                          <strong><a href="{% url 'login_view' %}" style="text-decoration: none; color:black;">Login</a></strong>
+                          {% endif %}
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="header__logo">
+                    <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                
+            </div>
+            <div class="col-lg-3">
+                <div class="header__cart">
+                    <ul>
+                        <li><a href="{% url 'view_wishlist' %}"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                        <li><a href="{% url 'view_cart' %}"><i class="fa fa-cart-arrow-down"></i> <span>3</span></a></li>
+                        <li><a href="{% url 'view_home' %}" ><i class="fa fa-home"></i> </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="humberger__open">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+</header>
+<!-- Header Section End -->
+
+    <form class="bg0 p-t-75 p-b-85">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
+              <div class="m-l-25 m-r--38 m-lr-0-xl">
+                <div class="wrap-table-shopping-cart">
+                  {% if ob %}
+                  {% for i in ob %}
+                  <div class="card rounded-3 mb-4">
+                    <div class="card-body p-4">
+                      <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-md-2 col-lg-2 col-xl-2">
+                          <img src="{{ i.image.url }}" class="img-fluid rounded-3">
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-3">
+                          <p class="lead fw-normal mb-2">{{i.productname}}</p>
+    
+                        </div>
+    
+                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                          {% csrf_token %}
+    
+                           <button style="border: 10px; color: red;" type="button" class="btn btn-link px-2"
+                            onclick="changeQuantity({{i.id}},-1)">
+                            <i class="fa fa-minus"></i>
+                          </button> 
+                           {% comment %} <a href="{% url 'dquantity' i.id %}" style="border: 10px; color: red;" type="button" class="btn btn-link px-2"
+                          >
+                          <i class="fa fa-minus"></i>
+                        </a>  {% endcomment %}
+    
+    
+                          <span id="{{i.id}}" name="quantity">{{i.quantity}}</span>
+    
+                          <button type="button" class="btn btn-link px-2" id="myBtn2{{i.id}}" onclick="changeQuantity({{i.id}},1)">
+                            <i class="fa fa-plus"></i>
+                          </button>  
+                           {% comment %} <a href="{% url 'iquantity' i.id %}" style="border: 10px; color: red;" type="button" class="btn btn-link px-2"
+                          >
+                          <i class="fa fa-plus"></i>
+                        </a>  {% endcomment %}
+                        </div>
+                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                          <h5 class="mb-0" id="{{i.id}}amount">Rs. {{i.price}}</h5>
+                        </div>
+    
+                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                          <a class="text-danger" href="{% url 'remove_cart' i.id %}"><i class="fa fa-trash fa-lg "></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                  {% else %}
+                  <div class="row container-fluid">
+                    <div class="col-md-12">
+                      <div class="col-sm-12 empty-cart-cls text-center">
+                        <img
+                          src="{% static 'home/img/cart/cart_is_empty.gif' %}"
+                          width="380rem"
+                          height="330rem"
+                          class="img-fluid mb-4 mr-3"
+                        />
+                        <h3><strong>Your wishlist is Empty</strong></h3>
+                        <h4>Add something You Wish to Buy 😫</h4>
+                        <a
+                          href="{% url 'view_home' %}"
+                          class="btn btn-success"
+                          data-abc="true"
+                          >continue shopping</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  {% endif %}
+    
+                </div>
+    
+    
+              </div>
+            </div>
+    
+            <div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
+              <div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
+                <h4 class="mtext-109 cl2 p-b-30">
+                  Cart Totals
+                </h4>
+    
+                <div class="flex-w flex-t p-t-27 p-b-33">
+                  <div class="size-208">
+                    <span class="mtext-101 cl2">
+                      Total:
+                    </span>
+                  </div>
+    
+                  <div class="size-209 p-t-1">
+                    <span class="mtext-110 cl2">
+                      <p id="total">Rs.  {{total}}</p>
+    
+                    </span>
+                  </div>
+                </div>
+                {% if ob %}
+                <a class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer btn btn-success"
+                  href="{% url 'checkout' %}" role="button"> Countinue to Checkout</a>
+                {% endif %}
+    
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    
+   
+    <!-- Footer Section Begin -->
+    <footer class="footer spad">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-6">
+                  <div class="footer__about">
+                      <div class="footer__about__logo">
+                          <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                      </div>
+                      <ul>
+                          <li>Address:  kochi</li>
+                          <li>Phone: +91 8547725677</li>
+                          <li>Email: gameload@gmail.com</li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                  <div class="footer__widget">
+                      <h6>Useful Links</h6>
+                      <ul>
+                          <li><a href="#" style="text-decoration:none;">About Us</a></li>
+                          <li><a href="#"style="text-decoration:none;">About Our Shop</a></li>
+                          <li><a href="#"style="text-decoration:none;">Secure Shopping</a></li>
+                          <li><a href="#"style="text-decoration:none;">Delivery infomation</a></li>
+                          <li><a href="#"style="text-decoration:none;">Privacy Policy</a></li>
+                          <li><a href="#"style="text-decoration:none;">Our Sitemap</a></li>
+                      </ul>
+                      <ul>
+                          <li><a href="#"style="text-decoration:none;">Who We Are</a></li>
+                          <li><a href="#"style="text-decoration:none;">Our Services</a></li>
+                          <li><a href="#"style="text-decoration:none;">Projects</a></li>
+                          <li><a href="#"style="text-decoration:none;">Contact</a></li>
+                          <li><a href="#"style="text-decoration:none;">Innovation</a></li>
+                          <li><a href="#"style="text-decoration:none;">Testimonials</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-12">
+                  <div class="footer__widget">
+                      <h6>Join Our Newsletter Now</h6>
+                      <p>Get E-mail updates about our latest shop and special offers.</p>
+                      <form action="#">
+                          <input type="text" placeholder="Enter your mail">
+                          <button type="submit" class="site-btn">Subscribe</button>
+                      </form>
+                      <div class="footer__widget__social">
+                          <a href="#"><i class="fa fa-facebook"></i></a>
+                          <a href="#"><i class="fa fa-instagram"></i></a>
+                          <a href="#"><i class="fa fa-twitter"></i></a>
+                          <a href="#"><i class="fa fa-pinterest"></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="footer__copyright">
+                      <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | gameload.in by ROHAN RAJ</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                      <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </footer>
+  <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <!--message-->
+    <script>
+      {% for n in messages %}
+      swal(
+'Good job!',
+'{{ n }}',
+'success'
+      )
+      {% endfor %}
+    </script>
+        
+<script>
+  function changeQuantity(id, count) {
+    var rohan = document.getElementById(id)
+
+    if (count == -1) {
+      $.ajax({
+        headers: {
+          "X-CSRFToken": $('[name=csrfmiddlewaretoken]').val()
+
+        },
+        type: "POST",
+        url: "{% url 'dquantity' %}",
+
+        data: {
+          id: id
+        },
+        success: function (response) {
+          quan = response.q
+          total = response.total
+          amount = response.amount
+          document.getElementById(id).innerHTML = quan
+          let a = id + 'amount'
+
+          k = document.getElementById(a)
+          k.innerHTML = amount
+          j = document.getElementById('total')
+          j.innerHTML = total
+          if(response.q > 1){
+            document.getElementById("myBtn2"+id).disabled = false;
+          }
+        }
+      })
+    }
+    else {
+      $.ajax({
+        headers: {
+          "X-CSRFToken": $('[name=csrfmiddlewaretoken]').val()
+
+        },
+        type: "POST",
+        url: "{% url 'iquantity' %}",
+
+        data: {
+          id: id
+        },
+        success: function (response) {
+          quan = response.q
+          total = response.total
+          amount = response.amount
+          let a = id + 'amount'
+          document.getElementById(id).innerHTML = quan
+          k = document.getElementById(a)
+
+          k.innerHTML = amount
+          j = document.getElementById('total')
+          j.innerHTML = total
+          if(response.q == response.cart1){
+            document.getElementById("myBtn2"+id).disabled = true;
+            swal("Product Limit Reached")
+          }
+          else{
+            document.getElementById("myBtn2"+id).disabled = false;
+          }
+      }
+    })
+  }
+}
+</script>
+  
+
+  
+    <script src="{% static 'home/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'home/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'home/js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'home/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'home/js/mixitup.min.js' %}"></script>
+    <script src="{% static 'home/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'home/js/main.js' %}"></script>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+
+</html>

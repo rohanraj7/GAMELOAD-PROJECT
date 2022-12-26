@@ -160,10 +160,10 @@ def signup(request):
         else:
             request.session['phoneno']=phoneno
             phone=phoneno
-            # verify.send(phone)
+            verify.send(phone)
             user = User.objects.create_user( fullname=fullname,phoneno=phoneno ,email=email, password=password1)
             user.save()
-            return redirect(login_view)
+            return redirect(otp)
     return render(request, 'signup.html')
 
 

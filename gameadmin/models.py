@@ -7,14 +7,11 @@ class Categories(models.Model):
     name = models.CharField(max_length=100)
     offer = models.IntegerField()
 
-
-
-
     def __str__(self):
         return self.name
 
 class UserManager(BaseUserManager):
-    def create_user (self,fullname,phoneno,email,password=None, is_staff=False, is_active=True, is_admin=False):
+    def create_user (self,fullname,phoneno,email,password=None, is_staff=False, is_active=True,is_superuser=False,is_admin=False):
         if not email:
             raise ValueError('user must have an email address')
         if not password:
@@ -27,6 +24,7 @@ class UserManager(BaseUserManager):
         user_obj.staff = is_staff
         user_obj.admin = is_admin
         user_obj.active = is_active
+        user_obj.is_superuser = is_superuser
         user_obj.save(using=self._db)
         return user_obj
     
@@ -35,7 +33,7 @@ class UserManager(BaseUserManager):
     #     return user
 
     def create_superuser(self,email,password=None):
-        user = self.create_user(email=email,fullname=None,phoneno=None,password=password,is_staff=True,is_active=True) 
+        user = self.create_user(email=email,fullname=None,phoneno=None,password=password,is_superuser=True,is_admin=True,is_staff=True,is_active=True) 
         return user
 
 class User(AbstractBaseUser):
@@ -77,6 +75,9 @@ class User(AbstractBaseUser):
 
     def is_active(self):
         return self.active
+    
+    
+    
 
 class Address(models.Model):
     user      = models.ForeignKey(User,on_delete=models.CASCADE)

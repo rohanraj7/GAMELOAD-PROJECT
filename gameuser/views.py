@@ -159,7 +159,7 @@ def signup(request):
             return redirect(signup)
         else:
             request.session['phoneno']=phoneno
-            if '+91' in  phoneno :
+            if '+91' in  phoneno:
                 pass
             else:
                 phoneno = '+91'+phoneno    
@@ -176,11 +176,16 @@ def otp(request):
         return redirect('view_home')
     if request.method =='POST':
         phoneno=request.session['phoneno']
+        if '+91' in  phoneno:
+            pass
+        else:
+            phoneno = '+91'+phoneno
         code = request.POST.get('code')
-        k=MessageHandler(phoneno,code).validate() 
-        # verify.check()                                                   
+        k=MessageHandler(phoneno,code).validate()                                                  
         if k:
             User.objects.filter(phoneno=phoneno).update(active=True)
+            n = 'USER CREATED SUCESSFULLY'
+            messages.info(request,n)
             return redirect(login_view)
         else:
             return redirect(number_check)

@@ -11,7 +11,7 @@ from django.contrib.postgres.search import SearchVector
 from django.core.paginator import Paginator
 from django.contrib.auth.hashers import check_password
 from productmanagement.models import Banner, Stock
-
+from gameuser import mixins
 
 # Create your views here.
 
@@ -159,8 +159,11 @@ def signup(request):
             return redirect(signup)
         else:
             request.session['phoneno']=phoneno
-            phone=phoneno
-            verify.send(phone)
+            if '+91' in  phoneno :
+                pass
+            else:
+                phoneno = '+91'+phoneno    
+            message_handler = MessageHandler(phoneno,otp).send_otp_to_phone()
             user = User.objects.create_user( fullname=fullname,phoneno=phoneno ,email=email, password=password1)
             user.save()
             return redirect(otp)
@@ -174,11 +177,11 @@ def otp(request):
     if request.method =='POST':
         phoneno=request.session['phoneno']
         code = request.POST.get('code')
-        k=verify.checked(phone=phoneno,code=code)  
+        k=MessageHandler(phoneno,code).validate() 
         # verify.check()                                                   
         if k:
             User.objects.filter(phoneno=phoneno).update(active=True)
-            return redirect(view_home)
+            return redirect(login_view)
         else:
             return redirect(number_check)
     return render(request,'otpverify.html')   

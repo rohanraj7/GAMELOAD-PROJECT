@@ -40,7 +40,7 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser):
     fullname = models.CharField(max_length=200,blank=True,null=True)
-    phoneno = models.CharField(max_length=10,null=True,unique=True)
+    phoneno = models.CharField(max_length=20,null=True,unique=True)
     email =models.EmailField(max_length=100,unique=True)
     active = models.BooleanField(default=False)
     staff = models.BooleanField(default=False)

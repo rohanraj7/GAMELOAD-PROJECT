@@ -34,9 +34,9 @@ class UserManager(BaseUserManager):
     #     user = self.create_user(email,password=password,is_staff=True,is_admin=True,is_active=True)
     #     return user
 
-    # def create_superuser(self,email,password=None):
-    #     user = self.create_user(email=email,password=password,is_staff=True,is_active=True)
-    #     return user
+    def create_superuser(self,email,password=None):
+        user = self.create_user(email=email,fullname=None,phoneno=None,password=password,is_staff=True,is_active=True) 
+        return user
 
 class User(AbstractBaseUser):
     fullname = models.CharField(max_length=200,blank=True,null=True)

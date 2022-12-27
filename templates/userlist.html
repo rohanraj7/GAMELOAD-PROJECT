@@ -37,3 +37,15 @@
 </section>
 
 {% endblock content %}
+
+{% block scripts %}
+<script>
+{% for n in messages %}
+  swal(
+  'Good job!',
+  '{{ n }}',
+  'success'
+  )
+{% endfor %}
+</script> 
+{% endblock %}

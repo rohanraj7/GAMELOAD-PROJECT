@@ -40,8 +40,8 @@
         </div>
         <div class="humberger__menu__cart">
             <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                <li><a href=""><i class="fa fa-heart"></i> <span>1</span></a></li>
+                <li><a href=""><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
             {% comment %} <div class="header__cart__price">item: <span>$150.00</span></div> {% endcomment %}
         </div>
@@ -56,29 +56,24 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
+                <a href="{% url 'login_view' %}"><i class="fa fa-user"></i> Login</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="./index.html">PS5</a></li>
-                <li><a href="./shop-grid.html">PS4</a></li>
-                <li><a href="#">PLAYSTATION</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">Xbox-One</a></li>
-                        <li><a href="./shoping-cart.html">Xbox-series X</a></li>
-                    </ul>
-                </li>
-                <li><a href="./blog.html">CONSOLE</a></li>
+                <li><a href="{% url 'view_home' %}">HOME</a></li>
+                <li><a href="{% url 'view_home' %}">SHOP</a></li>
+                <li><a href="{% url 'view_home' %}">Pages</a></li>
+                <li><a href="{% url 'view_home' %}">BLOG</a></li>
                
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
         <div class="header__top__right__social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+            <a href=""><i class="fa fa-facebook"></i></a>
+            <a href=""><i class="fa fa-twitter"></i></a>
+            <a href=""><i class="fa fa-linkedin"></i></a>
+            <a href=""><i class="fa fa-pinterest-p"></i></a>
         </div>
         {% comment %} <div class="humberger__menu__contact">
             <ul>
@@ -131,7 +126,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        <a href=""><img src="img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -139,8 +134,8 @@
                         <ul>
                             <li class="active"><a href="" style="text-decoration:none;">HOME</a></li>
                             <li><a href="{% url 'view_home' %}" style="text-decoration:none;">SHOP</a></li>
-                            <li><a href="#" style="text-decoration:none;">BLOG</a></li>
-                            <li><a href="" style="text-decoration:none;">CONTACT</a></li>
+                            <li><a href="{% url 'view_home' %}" style="text-decoration:none;">BLOG</a></li>
+                            <li><a href="{% url 'view_home' %}" style="text-decoration:none;">CONTACT</a></li>
                             
                         </ul>
                     </nav>
@@ -231,27 +226,27 @@
                 <div class="categories__slider owl-carousel">
                     <div class="col-lg-12">
                         <div class="categories__item set-bg" data-setbg="{% static 'home/img/categories/fifa2022.jpg' %}">
-                            <h5><a href="#">FIFA 2022</a></h5>
+                            <h5><a href="{% url 'view_home' %}">FIFA 2022</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="categories__item set-bg" data-setbg="{% static 'home/img/categories/farcry.jpg' %}">
-                            <h5><a href="#">FAR CRY</a></h5>
+                            <h5><a href="{% url 'view_home' %}">FAR CRY</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="categories__item set-bg" data-setbg="{% static 'home/img/categories/hogwarts.webp' %}">
-                            <h5><a href="#">HOGWARTS</a></h5>
+                            <h5><a href="{% url 'view_home' %}">HOGWARTS</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="categories__item set-bg" data-setbg="{% static 'home/img/categories/ps5.webp' %}">
-                            <h5><a href="#">PS5 PLAYSTATION</a></h5>
+                            <h5><a href="{% url 'view_home' %}">PS5 PLAYSTATION</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="categories__item set-bg" data-setbg="{% static 'home/img/categories/host.webp' %}">
-                            <h5><a href="#">GHOST</a></h5>
+                            <h5><a href="{% url 'view_home' %}">GHOST</a></h5>
                         </div>
                     </div>
                 </div>

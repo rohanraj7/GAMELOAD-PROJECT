@@ -25,6 +25,18 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <style>
+        .blink {
+            animation: blinker 1.5s linear infinite;
+            color: red;
+            font-family: sans-serif;
+        }
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -77,12 +89,13 @@
             <a href="#"><i class="fa fa-linkedin"></i></a>
             <a href="#"><i class="fa fa-pinterest-p"></i></a>
         </div>
-        {% comment %} <div class="humberger__menu__contact">
+         <div class="humberger__menu__contact">
             <ul>
-                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
+                <li><i class="fa fa-envelope"></i> gamelods.cf</li>
+                <li>APPLY THE AWESOME OFFERS -> </li> 
+                <ul class="blink" style="text-align: center;">LUCKY55 , OFFER50 </ul>
             </ul>
-        </div> {% endcomment %}
+        </div> 
     </div>
     <!-- Humberger End -->
 
@@ -92,12 +105,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        {% comment %} <div class="header__top__left">
+                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                                <li>Free Shipping for all Order of $99</li>
+                                <li><i class="fa fa-envelope"></i> gamelods.cf</li>
+                                <li>APPLY THE AWESOME OFFERS -> </li> 
+                                <ul class="blink" style="text-align: center;">LUCKY55 , OFFER50 </ul>
                             </ul>
-                        </div> {% endcomment %}
+                        </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">

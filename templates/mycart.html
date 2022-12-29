@@ -30,7 +30,18 @@
 
 <!--sweetAlert-->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+<style>
+  .blink {
+      animation: blinker 1.5s linear infinite;
+      color: red;
+      font-family: sans-serif;
+  }
+  @keyframes blinker {
+      50% {
+          opacity: 0;
+      }
+  }
+</style>
 </head>
 
 <body>
@@ -105,10 +116,11 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="header__top__left">
-                         <ul>
-                            <li><i class="fa fa-envelope"></i>gameload@gmail.com</li>
-                            <li>Free Shipping for all Order</li>
-                        </ul>
+                      <ul>
+                        <li><i class="fa fa-envelope"></i> gamelods.cf</li>
+                        <li>APPLY THE AWESOME OFFERS -> </li> 
+                        <ul class="blink" style="text-align: center;">LUCKY55 , OFFER50 </ul>
+                    </ul>
                     </div>
                 </div>
                 <div class="col-lg-6">

@@ -24,6 +24,18 @@
     <link rel="stylesheet" href="{% static 'home/css/style.css' %}" type="text/css">
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<style>
+    .blink {
+        animation: blinker 1.5s linear infinite;
+        color: red;
+        font-family: sans-serif;
+    }
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+</style>
 </head>
 
 <body>
@@ -38,23 +50,8 @@
         <div class="humberger__menu__logo">
             <a href="#"><img src="img/logo.png" alt=""></a>
         </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href=""><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href=""><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            {% comment %} <div class="header__cart__price">item: <span>$150.00</span></div> {% endcomment %}
-        </div>
         <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="img/language.png" alt="">
-                <div>English</div>
-                <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul>
-            </div>
+            
             <div class="header__top__right__auth">
                 <a href="{% url 'login_view' %}"><i class="fa fa-user"></i> Login</a>
             </div>
@@ -75,12 +72,13 @@
             <a href=""><i class="fa fa-linkedin"></i></a>
             <a href=""><i class="fa fa-pinterest-p"></i></a>
         </div>
-        {% comment %} <div class="humberger__menu__contact">
+         <div class="humberger__menu__contact">
             <ul>
-                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
+                <li><i class="fa fa-envelope"></i> gamelods.cf</li>
+                <li>APPLY THE AWESOME OFFERS -> </li> 
+                <ul class="blink" style="text-align: center;">LUCKY55 , OFFER50 </ul>
             </ul>
-        </div> {% endcomment %}
+        </div>
     </div>
     <!-- Humberger End -->
 
@@ -90,12 +88,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        {% comment %} <div class="header__top__left">
+                        <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                                <li>Free Shipping for all Order of $99</li>
+                                <li><i class="fa fa-envelope"></i> gamelods.cf</li>
+                                <li>APPLY THE AWESOME OFFERS -> </li> 
+                                <ul class="blink" style="text-align: center;">LUCKY55 , OFFER50 </ul>
                             </ul>
-                        </div> {% endcomment %}
+                        </div> 
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
@@ -130,7 +129,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <nav class="header__menu">
+                    <nav class="header__menu" style="padding-left: 92px;">
                         <ul>
                             <li class="active"><a href="" style="text-decoration:none;">HOME</a></li>
                             <li><a href="{% url 'view_home' %}" style="text-decoration:none;">SHOP</a></li>
@@ -139,15 +138,6 @@
                             
                         </ul>
                     </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                        </ul>
-                        {% comment %} <div class="header__cart__price">item: <span>$150.00</span></div> {% endcomment %}
-                    </div>
                 </div>
             </div>
             <div class="humberger__open">
@@ -160,28 +150,6 @@
     <!-- Hero Section Begin -->
     <section class="hero">
         <div class="container">
-            {% comment %} <div class="row">
-                <div class="col-lg-3"> {% endcomment %}
-                    {% comment %} <div class="hero__categories">
-                       <div class="hero__categories__all">
-                             <i class="fa fa-bars"></i>
-                            <span>All departments</span>
-                        </div>
-                        <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
-                        </ul> 
-                    </div>  {% endcomment %}
-                {% comment %} </div> {% endcomment %}
                 <div class="col-lg-12">
                     <div class="hero__search">
                         <div class="hero__search__form">
@@ -194,24 +162,9 @@
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
-                        {% comment %} <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
-                                <span>support 24/7 time</span>
-                            </div>
-                        </div> {% endcomment %} 
                     </div>
                    
                     <div class="hero__item set-bg" style="height: 637px;" data-setbg="{% static 'home/img/hero/ax0V5TYMax06mLzmkWeQMiwH.webp' %} ">
-                        {% comment %} <div class="hero__text" > {% endcomment %}
-                            {% comment %} <span>FRUIT FRESH</span> {% endcomment %}
-                            {% comment %} <h2>Vegetable <br />100% Organic</h2>
-                            <p>Free Pickup and Delivery Available</p> {% endcomment %}
-                            {% comment %} <a href="#" class="primary-btn">SHOP NOW</a> {% endcomment %}
-                        {% comment %} </div> {% endcomment %}
                     </div>
                 </div>
             </div>
@@ -220,537 +173,77 @@
     <!-- Hero Section End -->
 
     <!-- Categories Section Begin -->
-    <section class="categories">
-        <div class="container">
-            <div class="row">
-                <div class="categories__slider owl-carousel">
-                    <div class="col-lg-12">
-                        <div class="categories__item set-bg" data-setbg="{% static 'home/img/categories/fifa2022.jpg' %}">
-                            <h5><a href="{% url 'view_home' %}">FIFA 2022</a></h5>
-                        </div>
+    
+
+   
+
+<!-- Footer Section Begin -->
+<footer class="footer spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="footer__about">
+                    <div class="footer__about__logo">
+                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
                     </div>
-                    <div class="col-lg-12">
-                        <div class="categories__item set-bg" data-setbg="{% static 'home/img/categories/farcry.jpg' %}">
-                            <h5><a href="{% url 'view_home' %}">FAR CRY</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="categories__item set-bg" data-setbg="{% static 'home/img/categories/hogwarts.webp' %}">
-                            <h5><a href="{% url 'view_home' %}">HOGWARTS</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="categories__item set-bg" data-setbg="{% static 'home/img/categories/ps5.webp' %}">
-                            <h5><a href="{% url 'view_home' %}">PS5 PLAYSTATION</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="categories__item set-bg" data-setbg="{% static 'home/img/categories/host.webp' %}">
-                            <h5><a href="{% url 'view_home' %}">GHOST</a></h5>
-                        </div>
+                    <ul>
+                        <li>Address:  kochi</li>
+                        <li>Phone: +91 8547725677</li>
+                        <li>Email: gameload@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                <div class="footer__widget">
+                    <h6>Useful Links</h6>
+                    <ul>
+                        <li><a href="#" style="text-decoration:none;">About Us</a></li>
+                        <li><a href="#"style="text-decoration:none;">About Our Shop</a></li>
+                        <li><a href="#"style="text-decoration:none;">Secure Shopping</a></li>
+                        <li><a href="#"style="text-decoration:none;">Delivery infomation</a></li>
+                        <li><a href="#"style="text-decoration:none;">Privacy Policy</a></li>
+                        <li><a href="#"style="text-decoration:none;">Our Sitemap</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#"style="text-decoration:none;">Who We Are</a></li>
+                        <li><a href="#"style="text-decoration:none;">Our Services</a></li>
+                        <li><a href="#"style="text-decoration:none;">Projects</a></li>
+                        <li><a href="#"style="text-decoration:none;">Contact</a></li>
+                        <li><a href="#"style="text-decoration:none;">Innovation</a></li>
+                        <li><a href="#"style="text-decoration:none;">Testimonials</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="footer__widget">
+                    <h6>Join Our Newsletter Now</h6>
+                    <p>Get E-mail updates about our latest shop and special offers.</p>
+                    <form action="#">
+                        <input type="text" placeholder="Enter your mail">
+                        <button type="submit" class="site-btn">Subscribe</button>
+                    </form>
+                    <div class="footer__widget__social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-pinterest"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Categories Section End -->
-
-    <!-- Featured Section Begin -->
-    <section class="featured spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>Featured Product</h2>
-                    </div>
-                    <div class="featured__controls">
-                        <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".bestsellers">BEST SELLERS</li>
-                            <li data-filter=".pre-order">PRE ORDER</li>
-                            <li data-filter=".new-arrivals">NEW ARRIVALS</li>
-                            <li data-filter=".console-acce">CONSOLE & ACCESSORIES</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="row featured__filter">
-                <div class="col-lg-3 col-md-4 col-sm-6 mix bestsellers pre-order">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{% static 'home/img/featured/EA_77.jpeg' %}">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                {% comment %} <li><a href="#"><i class="fa fa-retweet"></i></a></li> {% endcomment %}
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">God Of War - PS4 (Pre-owned)</a></h6>
-                            <h5>₹749 </h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix bestsellers pre-order">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{% static 'home/img/featured/EA_106.jpeg' %}">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                {% comment %} <li><a href="#"><i class="fa fa-retweet"></i></a></li> {% endcomment %}
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Marvel's Spiderman - PS4 (Pre-owned)</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix bestsellers ">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{% static 'home/img/featured/EA_163.jpeg' %}">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                {% comment %} <li><a href="#"><i class="fa fa-retweet"></i></a></li> {% endcomment %}
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Uncharted 4 A Thiefs End - PS4 (Pre-owned)</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix console-acce ">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{% static 'home/img/featured/EA_978.png' %}">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                {% comment %} <li><a href="#"><i class="fa fa-retweet"></i></a></li> {% endcomment %}
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Sony PlayStation 4 Pro 1 TB Black (Pre-owned)</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div> 
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 new-arrivals">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{% static 'home/img/featured/EA_3371.jpeg' %}">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                {% comment %} <li><a href="#"><i class="fa fa-retweet"></i></a></li> {% endcomment %}
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Marvel's Midnight Suns Enhanced Edition - PS5</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix console-acce">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{% static 'home/img/featured/EA_1024.png' %}">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                {% comment %} <li><a href="#"><i class="fa fa-retweet"></i></a></li> {% endcomment %}
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Nintendo Switch 32GB V2 (HAC-001-01) Neon Red & Blue Joy-Con (Pre-owned)</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix console-acce">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{% static 'home/img/featured/EA_948.png' %}">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                {% comment %} <li><a href="#"><i class="fa fa-retweet"></i></a></li> {% endcomment %}
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Official Sony DualShock 4 Controller for PS4 (V2) Jet Black</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix new-arrivals pre-order">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{% static 'home/img/featured/EA_1788.jpeg' %}">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                {% comment %} <li><a href="#"><i class="fa fa-retweet"></i></a></li> {% endcomment %}
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Saints Row - PS5 (Pre-owned)</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Featured Section End -->
-
-    <!-- Banner Begin -->
-    <div class="banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="banner__pic">
-                        <img src="{% static 'home/img/banner/lotsofgame.jpg' %}" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="banner__pic">
-                        <img src="{% static 'home/img/banner/cod.jpg' %}" alt="">
-                    </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer__copyright">
+                    <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | gameload.in by ROHAN RAJ</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                    <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Banner End -->
-
-    <!-- Latest Product Section Begin -->
-    {% comment %} <section class="latest-product spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="latest-product__text">
-                        <h4>Latest Products</h4>
-                        <div class="latest-product__slider owl-carousel">
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{% static 'home/img/latest-product/EA_73.jpeg' %}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Ghost Of Tsushima - PS4 (Pre-owned)</h6>
-                                        <span>₹ 1399 </span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{% static 'home/img/latest-product/EA_84.jpeg' %}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>The Last Of Us Part II - PS4 (Pre-owned)</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{% static 'home/img/latest-product/EA_105.jpeg' %}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Grand Theft Auto V - PS4 (Pre-owned)</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{% static 'home/img/latest-product/EA_129.jpeg' %}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Red Dead Redemption 2 - PS4 (Pre-owned)</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{% static 'home/img/latest-product/EA_147.jpeg' %}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Marvel's Spider-Man Miles Morales - PS4 (Pre-owned) </h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{% static 'home/img/latest-product/EA_42.jpeg' %}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Days Gone - PS4 (Pre-owned)</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="latest-product__text">
-                        <h4>Top Rated Products</h4>
-                        <div class="latest-product__slider owl-carousel">
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{% static 'home/img/latest-product/EA_998.png' %}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Sony PlayStation 4 Slim 500 GB Jet Black (Pre-owned)</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{% static 'home/img/latest-product/EA_1232.jpeg' %}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Assassins Creed Valhalla - PS4 (Pre-owned)</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{% static 'home/img/latest-product/EA_165.jpeg' %}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6> Uncharted The Nathan Drake Collection</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{% static 'home/img/latest-product/EA_177.jpeg' %}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>WWE 2K19 - PS4 (Pre-owned)</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{% static 'home/img/latest-product/EA_1029.png' %}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Nintendo Switch Lite Grey (Pre-owned)</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{% static 'home/img/latest-product/EA_558.jpeg' %}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>The Legend of Zelda Breath of the Wild - Nintendo Switch (Pre-owned)</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="latest-product__text">
-                        <h4>Review Products</h4>
-                        <div class="latest-product__slider owl-carousel">
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{% static 'home/img/latest-product/EA_1151.png' %}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Nintendo Switch Lite Coral</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{% static 'home/img/latest-product/EA_1031.png' %}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Nintendo Switch Lite Yellow</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{% static 'home/img/latest-product/EA_1151.png' %}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Nintendo Switch Lite Coral</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{% static 'home/img/latest-product/EA_1642.png' %}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Nintendo Switch Lite Blue </h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{% static 'home/img/latest-product/EA_1642.png' %}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Nintendo Switch Lite Blue y</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="{% static 'home/img/latest-product/EA_1642.png' %}" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Nintendo Switch Lite Blue </h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> {% endcomment %}
-    <!-- Latest Product Section End -->
-
-    <!-- Blog Section Begin -->
-    {% comment %} <section class="from-blog spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title from-blog__title">
-                        <h2>From The Blog</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic">
-                            <img src="img/blog/blog-1.jpg" alt="">
-                        </div>
-                        <div class="blog__item__text">
-                            <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                <li><i class="fa fa-comment-o"></i> 5</li>
-                            </ul>
-                            <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic">
-                            <img src="img/blog/blog-2.jpg" alt="">
-                        </div>
-                        <div class="blog__item__text">
-                            <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                <li><i class="fa fa-comment-o"></i> 5</li>
-                            </ul>
-                            <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic">
-                            <img src="img/blog/blog-3.jpg" alt="">
-                        </div>
-                        <div class="blog__item__text">
-                            <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                <li><i class="fa fa-comment-o"></i> 5</li>
-                            </ul>
-                            <h5><a href="#">Visit the clean farm in the US</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> {% endcomment %}
-    <!-- Blog Section End -->
-
-    <!-- Footer Section Begin -->
-    <footer class="footer spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="footer__about">
-                        <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                        </div>
-                        <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
-                            <li>Email: hello@colorlib.com</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-                    <div class="footer__widget">
-                        <h6>Useful Links</h6>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="footer__widget">
-                        <h6>Join Our Newsletter Now</h6>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
-                        <form action="#">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit" class="site-btn">Subscribe</button>
-                        </form>
-                        <div class="footer__widget__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer__copyright">
-                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
-                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Section End -->
+</footer>
+<!-- Footer Section End -->
 
     <!-- Js Plugins -->
     <script src="{% static 'home/js/jquery-3.3.1.min.js' %}"></script>

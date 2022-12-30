@@ -9,6 +9,8 @@ class MessageHandler:
         self.otp          = otp
 
     def send_otp_to_phone(self):
+        print(self.phone_number)
+        print(self.otp)
         client = Client(settings.ACCOUNT_SID,settings.AUTH_TOKEN)
         verification = client.verify \
                      .v2 \

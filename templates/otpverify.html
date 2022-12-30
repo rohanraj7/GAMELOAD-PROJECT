@@ -26,7 +26,7 @@
 		      		<span class="fa fa-edit"></span>
 		      	</div>
 		      	<h3 class="text-center mb-4"> OTP Generate</h3>
-						<form action="" class="signup-form" method="post">
+						<form action="{% url 'otp_validate' %}" class="signup-form" method="post">
 							{% csrf_token %}
 							{% for message in messages %}
 						<div class="alert alert-danger" role="alert">

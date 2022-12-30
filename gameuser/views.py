@@ -196,23 +196,28 @@ def number_check(request):
         return redirect('view_home')
     if request.method=='POST':
         phoneno=request.POST.get('phoneno')
-        print("dance")
-        print(phoneno)
+        if '+91' in  phoneno:
+            pass
+        else:
+            phoneno = '+91'+phoneno
+        otp = 1234
         message_handler = MessageHandler(phoneno,otp).send_otp_to_phone()
-        return render(request, 'otpverify.html',{'phoneno':phoneno})
+        return render(request, 'otpverify.html',{'phone':phoneno})
     return render(request,'otp.html')
 
 def otp_validate(request):
     if request.user.is_authenticated:
-        return redirect('login_home')
+        return redirect('view_home')
     if request.method=='POST':
-        print("entered")
-        phone=request.POST['phoneno']
-        print("going")
+        phone=request.POST['phone']
+        if '+91' in  phone:
+            pass
+        else:
+            phone = '+91'+phone
         otp1= int(request.POST['code'])
         validate = MessageHandler(phone,otp1).validate()
         if validate=="approved":
-            user = User.objects.get(phone_number=phone)
+            user = User.objects.get(phoneno=phone)
             if user==None:
                 messages.error(request, 'Wrong Credentials')
                 return render(request,'otpverify.html')

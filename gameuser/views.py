@@ -222,7 +222,6 @@ def otp_validate(request):
                 messages.error(request, 'Wrong Credentials')
                 return render(request,'otpverify.html')
             login(request,user)
-            print ("user ",user)
             messages.error(request, 'login success')
             return redirect('view_home')
         else:

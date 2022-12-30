@@ -158,15 +158,18 @@ def signup(request):
             messages.info(request,'email taken')
             return redirect(signup)
         else:
-            request.session['phoneno']=phoneno
+            phoneno = request.POST.get('phone_no')
+            print('comeon')
+            print(phoneno)
             if '+91' in  phoneno:
                 pass
             else:
-                phoneno = '+91'+phoneno    
+                phoneno = '+91'+phoneno   
+            otp = 1234     
             message_handler = MessageHandler(phoneno,otp).send_otp_to_phone()
-            user = User.objects.create_user( fullname=fullname,phoneno=phoneno ,email=email, password=password1)
-            user.save()
-            return redirect(otp)
+            # user = User.objects.create_user( fullname=fullname,phoneno=phoneno ,email=email, password=password1)
+            # user.save()
+            return render(request, 'signup_otp.html',{'fullname':fullname,'email':email,'phoneno':phoneno,'password':password1})
     return render(request, 'signup.html')
 
 
@@ -175,7 +178,11 @@ def otp(request):
     if request.user.is_authenticated:
         return redirect('view_home')
     if request.method =='POST':
-        phoneno=request.session['phoneno']
+        print("entered perfect")
+        fullname = request.POST.get('name')
+        email = request.POST.get('email')
+        password1 = request.POST.get('password')
+        phoneno = request.POST.get('phoneno')
         if '+91' in  phoneno:
             pass
         else:
@@ -184,12 +191,14 @@ def otp(request):
         k=MessageHandler(phoneno,code).validate()                                                  
         if k:
             User.objects.filter(phoneno=phoneno).update(active=True)
+            user = User.objects.create_user( fullname=fullname,phoneno=phoneno ,email=email, password=password1)
+            user.save()
             n = 'USER CREATED SUCESSFULLY'
             messages.info(request,n)
             return redirect(login_view)
         else:
             return redirect(number_check)
-    return render(request,'otpverify.html')   
+    return render(request,'signup_otp.html')   
 
 def number_check(request):
     if request.user.is_authenticated:

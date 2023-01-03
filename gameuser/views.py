@@ -5,7 +5,7 @@ from django.views.decorators.cache import never_cache
 from twilio.rest import Client
 from cartmanagement.models import Cart
 from gameuser.mixins import MessageHandler
-from gameadmin.models import Address, User,Categories
+from gameadmin.models import Address, Coupon, User,Categories
 from gameload import verify
 from django.contrib.postgres.search import SearchVector
 from django.core.paginator import Paginator
@@ -94,6 +94,7 @@ def view_home(request):
     else:
         p = Stock.objects.all()    
         ban = Banner.objects.values() 
+        coupon = Coupon.objects.values("coupon_code")
         products = []
         for i in p:
             products.append({
@@ -116,8 +117,6 @@ def view_home(request):
         totalpage = productdata.paginator.num_pages
         cat = Categories.objects.all()
         name= request.GET.get('search')
-        print("kjnj")
-        print(name)
          
 # ____________SEARCH________
 
@@ -125,7 +124,7 @@ def view_home(request):
             match = Stock.objects.values('name','price','quantity','image1','description','id','stock').annotate(search=SearchVector('name','description')).filter(search=name)
             # c = Cart.objects.filter(userid=request.user).count()
             return render(request , 'viewhome.html',{'match': match,'cat':cat,'p':p})
-        context= {'p':productdata,'lastpage':totalpage,'cat':cat,'ban':ban,'list':[n+1 for n in range(totalpage)]} 
+        context= {'p':productdata,'lastpage':totalpage,'coupon':coupon,'cat':cat,'ban':ban,'list':[n+1 for n in range(totalpage)]} 
         return render(request,'viewhome.html',context)     
     return redirect(login_view)     
         
@@ -159,8 +158,6 @@ def signup(request):
             return redirect(signup)
         else:
             phoneno = request.POST.get('phone_no')
-            print('comeon')
-            print(phoneno)
             if '+91' in  phoneno:
                 pass
             else:

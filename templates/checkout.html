@@ -43,7 +43,10 @@
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
         <div class="container">
-            <p class="blink">APPLY THE AWESOME OFFERS -> LUCKY55 , OFFER50 </p>
+            <li style="list-style-type: none;"> APPLY THE AWESOME OFFERS -> </li> 
+            {% for i in applycoupon %}
+            <ul class="blink" style="text-align: center; display:left;display: inline;">{{i.coupon_code}}</ul>
+            {% endfor %}
             <div class="checkout__form">
                 <h4>Billing Details</h4>
                 <form action="" method="post" >
@@ -149,9 +152,9 @@
                             <a href="./index.html"><img src="img/logo.png" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
-                            <li>Email: hello@colorlib.com</li>
+                            <li>Address:  kochi</li>
+                            <li>Phone: +91 8547725677</li>
+                            <li>Email: gameload@gmail.com</li>
                         </ul>
                     </div>
                 </div>
@@ -159,20 +162,20 @@
                     <div class="footer__widget">
                         <h6>Useful Links</h6>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
+                            <li><a href="#" style="text-decoration:none;">About Us</a></li>
+                            <li><a href="#"style="text-decoration:none;">About Our Shop</a></li>
+                            <li><a href="#"style="text-decoration:none;">Secure Shopping</a></li>
+                            <li><a href="#"style="text-decoration:none;">Delivery infomation</a></li>
+                            <li><a href="#"style="text-decoration:none;">Privacy Policy</a></li>
+                            <li><a href="#"style="text-decoration:none;">Our Sitemap</a></li>
                         </ul>
                         <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
+                            <li><a href="#"style="text-decoration:none;">Who We Are</a></li>
+                            <li><a href="#"style="text-decoration:none;">Our Services</a></li>
+                            <li><a href="#"style="text-decoration:none;">Projects</a></li>
+                            <li><a href="#"style="text-decoration:none;">Contact</a></li>
+                            <li><a href="#"style="text-decoration:none;">Innovation</a></li>
+                            <li><a href="#"style="text-decoration:none;">Testimonials</a></li>
                         </ul>
                     </div>
                 </div>
@@ -197,7 +200,7 @@
                 <div class="col-lg-12">
                     <div class="footer__copyright">
                         <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | gameload.in by ROHAN RAJ</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
                         <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
                     </div>
@@ -205,7 +208,7 @@
             </div>
         </div>
     </footer>
-     <!-- Footer Section End -->
+    <!-- Footer Section End -->
 
 
     <!-- Js Plugins -->

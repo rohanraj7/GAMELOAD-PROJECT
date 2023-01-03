@@ -47,7 +47,7 @@ def checkout(request):
         ord2 = str(datetime.now())+str(request.user.id)
         ord1 = ord2.translate({ord(':'): None,ord('-'): None, ord(' '): None, ord('.'): None})
         request.session['neworderid'] = ord1
-
+        apply_coupon = Coupon.objects.values('coupon_code')
         now = datetime.now()
         
         # COUPONS
@@ -67,7 +67,6 @@ def checkout(request):
                 return redirect(checkout)        
 
         if request.method=='POST':
-
             Name     = request.POST['name']
             address  = request.POST['address']
             method   = request.POST['method']
@@ -116,7 +115,7 @@ def checkout(request):
                 de = Cart.objects.filter(userid=request.user.id)
                 de.delete()
                 return render(request,'success1.html')
-        return render(request,'checkout.html',{'ob':ob, 'm':m, 'total':total, 'add':add})
+        return render(request,'checkout.html',{'ob':ob,'applycoupon':apply_coupon,'m':m, 'total':total, 'add':add})
     else:
         return redirect(login_view)
 
